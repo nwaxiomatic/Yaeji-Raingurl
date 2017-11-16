@@ -1,3 +1,7 @@
+if ($('body').hasClass('mobile')) {
+  $('.full-height').css({ height: window.innerHeight });
+}
+
 window.addEventListener("load",function() {
   setTimeout(function(){
     window.scrollTo(0, 1);
