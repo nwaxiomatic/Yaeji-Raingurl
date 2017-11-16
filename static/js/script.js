@@ -8,6 +8,10 @@ if (isMobile){
   $('.zine-info').css({ 'height': window.innerHeight });
 }
 
+setInterval(function(){
+	$('#loader-img').toggleClass('shown');
+}, 2000);
+
 window.addEventListener("load",function() {
   setTimeout(function(){
     window.scrollTo(0, 1);
@@ -26,12 +30,17 @@ function onYouTubePlayerAPIReady() {
 
 function onPlayerReady(event) {
   $('.loader').toggleClass('shown');
-  $('.buttons').toggleClass('shown');
+  setTimeout(function(){
+  	$('.buttons').toggleClass('shown');
+  }, 1000);
+  
 
   var playButton = $("#play-button").click(function() {
 	player.playVideo();
+	$('#video').css({'z-index':1000});
 	$('.video-cover').toggleClass('shown');
 	$('#video').toggleClass('shown');
+	$('.buttons').toggleClass('shown');
   });
   
 }
@@ -40,7 +49,3 @@ var tag = document.createElement('script');
 tag.src = "//www.youtube.com/player_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-setInterval(function(){
-	$('#loader-img').toggleClass('shown');
-}, 2000);
