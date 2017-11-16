@@ -37,7 +37,7 @@ function onPlayerReady(event) {
 
   var playButton = $("#play-button").click(function() {
 	player.playVideo();
-	$('#video').css({'z-index':1000});
+	$('.video-cover').css({'z-index':-100});
 	$('.video-cover').toggleClass('shown');
 	$('#video').toggleClass('shown');
 	$('.buttons').toggleClass('shown');
