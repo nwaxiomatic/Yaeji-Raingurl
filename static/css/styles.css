@@ -23,7 +23,7 @@
   left: -9999px;
 }
 
-body {
+body, .container {
   background-color: black;
   overflow-x: hidden;
   width: 100vw;

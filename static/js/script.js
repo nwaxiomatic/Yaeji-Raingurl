@@ -8,14 +8,28 @@ if (isMobile){
   $('.zine-info').css({ 'height': window.innerHeight });
 }
 
+/*
 setInterval(function(){
 	$('#loader-img').toggleClass('shown');
 }, 2000);
+*/
 
-window.addEventListener("load",function() {
-  setTimeout(function(){
-    window.scrollTo(0, 1);
-  }, 0);
+$('.loader').addClass('shown');
+
+$(window).on("mousewheel DOMMouseScroll", onMouseWheel);
+
+function onMouseWheel(e) {
+    e.preventDefault();
+}
+
+$(window).on("load", function() {
+    setTimeout(function(){
+    	window.scrollTo(0, 1);
+  	}, 0);
+  	$('.container').addClass('shown');
+  	setTimeout(function(){
+  		$(window).off("mousewheel DOMMouseScroll");
+  	}, 2000);
 });
 
 var player;
@@ -31,8 +45,9 @@ function onYouTubePlayerAPIReady() {
 function onPlayerReady(event) {
   $('.loader').toggleClass('shown');
   setTimeout(function(){
+  	$('.loader').remove();
   	$('.buttons').toggleClass('shown');
-  }, 1000);
+  }, 1500);
   
 
   var playButton = $("#play-button").click(function() {
