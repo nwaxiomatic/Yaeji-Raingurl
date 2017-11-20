@@ -47,7 +47,7 @@ function onPlayerReady(event) {
   setTimeout(function(){
   	$('.loader').remove();
   	$('.buttons').toggleClass('shown');
-  }, 1500);
+  }, 2000);
   
 
   var playButton = $("#play-button").click(function() {
